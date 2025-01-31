@@ -39,7 +39,7 @@ export class motions {
       hide: Variant;
     } & {
       [p: string]: any;
-    }
+    },
   ) => (
     <motion.div
       initial={'hide'}

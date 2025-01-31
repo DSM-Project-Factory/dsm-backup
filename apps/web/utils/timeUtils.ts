@@ -19,7 +19,7 @@ export const relativeTime = (_time: string) => {
     }
   }
   return `${time.getFullYear()}.${zeroNumber(time.getMonth() + 1)}.${zeroNumber(
-    time.getDate()
+    time.getDate(),
   )}`;
 };
 

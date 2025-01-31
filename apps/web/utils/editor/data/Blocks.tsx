@@ -66,7 +66,7 @@ export class Blocks {
       list.push(
         <BlockQuotation key={key('quotation', Math.random())}>
           {Blocks.quotation}
-        </BlockQuotation>
+        </BlockQuotation>,
       );
     }
     return list;
@@ -82,7 +82,7 @@ export class Blocks {
         theme={atomOneDark}
         language={Blocks.codeLang}
         text={Blocks.codes.join('\n')}
-      />
+      />,
     );
     Blocks.codes = [];
     Blocks.codeBlock = false;
@@ -96,7 +96,7 @@ export class Blocks {
   private static compileBlock(
     block: string,
     index: number,
-    list: (React.ReactElement | undefined)[]
+    list: (React.ReactElement | undefined)[],
   ) {
     if (block.length < 0) return;
     let checks: RegExpExecArray | null;
@@ -128,7 +128,7 @@ export class Blocks {
       Blocks.quotation.push(
         <Blocks.P key={key('blc', index)} id={key('block', index)}>
           {text.length <= 0 ? noText() : this.styleCheck(text, false)}
-        </Blocks.P>
+        </Blocks.P>,
       );
       return;
     }
@@ -136,7 +136,7 @@ export class Blocks {
       list.push(
         <BlockQuotation key={key('quotation', index)}>
           {Blocks.quotation}
-        </BlockQuotation>
+        </BlockQuotation>,
       );
       Blocks.quotation = [];
     }
@@ -147,7 +147,7 @@ export class Blocks {
           className="w-full min-h-[2px] h-[2px] rounded-sm bg-grayLight1 dark:bg-grayDark2 my-2"
           key={key('line', index)}
           id={key('block', index)}
-        />
+        />,
       );
       return;
     }
@@ -171,7 +171,7 @@ export class Blocks {
           <Blocks.H6>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H6>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -188,7 +188,7 @@ export class Blocks {
           <Blocks.H5>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H5>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -205,7 +205,7 @@ export class Blocks {
           <Blocks.H4>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H4>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -221,7 +221,7 @@ export class Blocks {
           <Blocks.H3>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H3>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -237,7 +237,7 @@ export class Blocks {
           <Blocks.H2>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H2>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -253,7 +253,7 @@ export class Blocks {
           <Blocks.H1>
             {text.length <= 0 ? noText() : this.styleCheck(text, true)}
           </Blocks.H1>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -268,7 +268,7 @@ export class Blocks {
           $align={align}
         >
           <Blocks.Img url={url} alt={alt} />
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -297,7 +297,7 @@ export class Blocks {
           <Blocks.P>
             {text.length <= 0 ? noText() : this.styleCheck(text, false)}
           </Blocks.P>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -319,7 +319,7 @@ export class Blocks {
           <Blocks.P>
             {text.length <= 0 ? noText() : this.styleCheck(text, false)}
           </Blocks.P>
-        </BlockAlign>
+        </BlockAlign>,
       );
       return;
     }
@@ -334,13 +334,13 @@ export class Blocks {
         <Blocks.P>
           {block.length <= 0 ? noText() : this.styleCheck(block)}
         </Blocks.P>
-      </BlockAlign>
+      </BlockAlign>,
     );
   }
 
   private static styleCheck = (
     blocks: string,
-    noStyle: boolean = false
+    noStyle: boolean = false,
   ): (string | React.ReactElement)[] => {
     if (noStyle) return [blocks];
     return this.chk(blocks).flatMap((block) => {
@@ -359,7 +359,7 @@ export class Blocks {
           blockArr.push(
             <BlockA href={url} target={'_blank'}>
               {alt}
-            </BlockA>
+            </BlockA>,
           );
         }
         if (block.length > 0) blockArr.push(block);
@@ -393,7 +393,7 @@ export class Blocks {
     bold: boolean = false,
     italic: boolean = false,
     underline: boolean = false,
-    strike: boolean = false
+    strike: boolean = false,
   ): (string | React.ReactElement)[] => {
     const arr: (string | React.ReactElement)[] = [];
     if (Blocks.regex.enchant.test(block)) {
@@ -424,7 +424,7 @@ export class Blocks {
             key={Math.random()}
           >
             {str}
-          </span>
+          </span>,
         );
       } else if (tag === '*' || tag === '_') {
         const checked = this.chk(str, bold, true, underline, strike);
@@ -433,7 +433,7 @@ export class Blocks {
           arr.push(
             <span className="italic" key={Math.random()}>
               {checked}
-            </span>
+            </span>,
           );
       } else if (tag === '**') {
         const checked = this.chk(str, true, italic, underline, strike);
@@ -442,7 +442,7 @@ export class Blocks {
           arr.push(
             <span className="font-bold" key={Math.random()}>
               {checked}
-            </span>
+            </span>,
           );
       } else if (tag === '***') {
         const checked = this.chk(str, true, true, underline, strike);
@@ -451,7 +451,7 @@ export class Blocks {
           arr.push(
             <span className="font-bold" key={Math.random()}>
               <span className="italic">{checked}</span>
-            </span>
+            </span>,
           );
       } else if (tag === '__') {
         const checked = this.chk(str, bold, italic, true, strike);
@@ -460,11 +460,11 @@ export class Blocks {
           arr.push(
             <BlockUnderStrikethrough key={Math.random()}>
               {checked}
-            </BlockUnderStrikethrough>
+            </BlockUnderStrikethrough>,
           );
         else
           arr.push(
-            <BlockUnderline key={Math.random()}>{checked}</BlockUnderline>
+            <BlockUnderline key={Math.random()}>{checked}</BlockUnderline>,
           );
       } else if (tag === '~~') {
         const checked = this.chk(str, bold, italic, underline, true);
@@ -473,13 +473,13 @@ export class Blocks {
           arr.push(
             <BlockUnderStrikethrough key={Math.random()}>
               {checked}
-            </BlockUnderStrikethrough>
+            </BlockUnderStrikethrough>,
           );
         else
           arr.push(
             <BlockStrikethrough key={Math.random()}>
               {checked}
-            </BlockStrikethrough>
+            </BlockStrikethrough>,
           );
       }
     }
@@ -560,7 +560,7 @@ export class Blocks {
 
   private static styleCheckEditor = (
     blocks: string,
-    noStyle: boolean = false
+    noStyle: boolean = false,
   ): (string | React.ReactElement)[] => {
     return (noStyle ? [blocks] : this.chk(blocks)).flatMap((block) => {
       if (typeof block == 'string') {

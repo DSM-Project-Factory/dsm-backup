@@ -1,9 +1,9 @@
-import { cookies } from 'next/headers'
+import { cookies } from 'next/headers';
 
 export const getUserId = async () => {
-  return (await cookies()).get('userId')?.value
-}
+  return (await cookies()).get('userId')?.value;
+};
 
 export const getToken = async () => {
-  return (await cookies()).get('token')?.value
-}
+  return (await cookies()).get('token')?.value;
+};

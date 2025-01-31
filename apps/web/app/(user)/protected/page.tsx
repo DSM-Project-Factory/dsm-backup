@@ -1,20 +1,20 @@
-import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function ProtectedPage() {
-  const supabase = await createClient()
+  const supabase = await createClient();
 
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser();
 
   if (!user) {
-    return redirect('/login')
+    return redirect('/login');
   }
 
   return (
-    <div className='flex flex-col items-center flex-1 w-full gap-20'>
+    <div className="flex flex-col items-center flex-1 w-full gap-20">
       this is protected page.
     </div>
-  )
+  );
 }

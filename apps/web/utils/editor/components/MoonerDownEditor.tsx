@@ -46,7 +46,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
         edit.value.substring(startPos);
       edit.setSelectionRange(
         startPos + str.indexOf('$'),
-        startPos + str.indexOf('$')
+        startPos + str.indexOf('$'),
       );
       edit.focus();
       updateText(edit);
@@ -59,7 +59,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
         edit.value.substring(endPos);
       edit.setSelectionRange(
         startPos + str.indexOf('$'),
-        endPos + str.indexOf('$')
+        endPos + str.indexOf('$'),
       );
       edit.focus();
       updateText(edit);
@@ -140,7 +140,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
               edit.value.substring(end);
             edit.setSelectionRange(
               start + 1 + tab.length,
-              end + 1 + tab.length
+              end + 1 + tab.length,
             );
             start += 1 + tab.length;
             end += 1 + tab.length;
@@ -165,7 +165,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
               edit.value.substring(end);
             edit.setSelectionRange(
               start + (executed ? 2 : 3),
-              start + (executed ? 2 : 3)
+              start + (executed ? 2 : 3),
             );
             start += executed ? 2 : 3;
             end += executed ? 2 : 3;
@@ -190,7 +190,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
               edit.value.substring(end);
             edit.setSelectionRange(
               start + `${+number + 1}`.length + (executed ? 2 : 3),
-              start + `${+number + 1}`.length + (executed ? 2 : 3)
+              start + `${+number + 1}`.length + (executed ? 2 : 3),
             );
             updateText(edit);
             registerUndo();
@@ -213,7 +213,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
               edit.value.substring(end);
             edit.setSelectionRange(
               start + (executed ? 2 : 3),
-              start + (executed ? 2 : 3)
+              start + (executed ? 2 : 3),
             );
             updateText(edit);
             registerUndo();
@@ -240,7 +240,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
               betweenRemove("'", "'"),
               betweenRemove('"', '"'),
             ],
-            (v) => v
+            (v) => v,
           )
         ) {
           event.preventDefault();
@@ -248,7 +248,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
         }
         let first3 = Math.max(
           edit.value.lastIndexOf('\n', edit.selectionStart - 1) + 1,
-          0
+          0,
         );
         const codesCount = edit.value
           .substring(0, first3)
@@ -459,7 +459,7 @@ const MoonerDownEditor = ({ texts, setTexts, renders, placeholder }: Props) => {
         Regex.url.test(data) &&
         event.currentTarget.value.substring(
           event.currentTarget.selectionStart - 1,
-          event.currentTarget.selectionEnd + 1
+          event.currentTarget.selectionEnd + 1,
         ) !== '()'
       ) {
         event.preventDefault();

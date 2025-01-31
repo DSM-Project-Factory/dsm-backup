@@ -1,32 +1,32 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { QueryProvider, ThemesProvider } from '@/utils'
-import { Footer, Navigator } from '@/components'
-import './globals.css'
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { QueryProvider, ThemesProvider } from '@/utils';
+import { Footer, Navigator } from '@/components';
+import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+  : 'http://localhost:3000';
 
 const Pretendard = localFont({
   src: './PretendardVariable.woff2',
   display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
   title: 'Backup',
   description: '모두를 위한 디자인 피드백 서비스',
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={Pretendard.className} suppressHydrationWarning>
+    <html lang="en" className={Pretendard.className} suppressHydrationWarning>
       <head>
         {/* <meta
           name="google-adsense-account"
@@ -42,7 +42,7 @@ export default function RootLayout({
       <body>
         <QueryProvider>
           <ThemesProvider>
-            <main className='min-h-[100dvh] flex flex-col items-center'>
+            <main className="min-h-[100dvh] flex flex-col items-center">
               <Navigator />
               {children}
             </main>
@@ -50,7 +50,7 @@ export default function RootLayout({
           </ThemesProvider>
         </QueryProvider>
       </body>
-      <GoogleAnalytics gaId='G-JGDSQQ387S' />
+      <GoogleAnalytics gaId="G-JGDSQQ387S" />
     </html>
-  )
+  );
 }

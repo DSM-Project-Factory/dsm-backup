@@ -7,7 +7,7 @@ const useMoonerDown = (text?: string) => {
   const renderRef = useRef<HTMLDivElement>(null);
 
   const Editor: (placeholder?: string) => React.ReactElement = (
-    placeholder?: string
+    placeholder?: string,
   ) => (
     <MoonerDownEditor
       texts={texts}

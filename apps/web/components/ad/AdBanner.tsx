@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use client'
+'use client';
 
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 type AdBannerTypes = {
-  dataAdSlot: string
-  dataAdFormat: string
-  dataAdLayoutKey: string
-  dataFullWidthResponsive?: boolean
-}
+  dataAdSlot: string;
+  dataAdFormat: string;
+  dataAdLayoutKey: string;
+  dataFullWidthResponsive?: boolean;
+};
 
 export const AdBanner = ({
   dataAdSlot,
@@ -18,17 +18,17 @@ export const AdBanner = ({
 }: AdBannerTypes) => {
   useEffect(() => {
     try {
-      ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
-        {}
-      )
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(
+        {},
+      );
     } catch (error: any) {
-      console.log(error.message)
+      console.log(error.message);
     }
-  }, [])
+  }, []);
 
   return (
     <ins
-      className='adsbygoogle'
+      className="adsbygoogle"
       style={{ display: 'block' }}
       data-ad-client={`ca-pub-${process.env.NEXT_PUBLIC_GOOGLE_ADS}`}
       data-ad-slot={dataAdSlot}
@@ -38,5 +38,5 @@ export const AdBanner = ({
         dataFullWidthResponsive ? dataFullWidthResponsive.toString() : 'false'
       }
     ></ins>
-  )
-}
+  );
+};

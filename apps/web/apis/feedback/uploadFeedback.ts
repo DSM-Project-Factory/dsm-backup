@@ -9,7 +9,7 @@ type FeedbackUploadType = {
 
 export const uploadFeedback = async (
   token: string,
-  feedbackData: FeedbackUploadType
+  feedbackData: FeedbackUploadType,
 ) => {
   return await instance({
     method: 'POST',

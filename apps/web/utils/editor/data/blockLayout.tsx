@@ -73,8 +73,8 @@ export const BlockAlign = styled.div<{ $align: AlignType; $tab?: string }>`
     props.$align == 'left'
       ? 'flex-start'
       : props.$align == 'right'
-      ? 'flex-end'
-      : 'center'};
+        ? 'flex-end'
+        : 'center'};
   white-space: pre-wrap;
   margin-left: ${(props) => props.$tab ?? '0'};
   //margin: {props => props.$margin ?? "8px 0 0 0"};

@@ -2,6 +2,7 @@ import { BackupLogo } from '@/assets';
 import Link from 'next/link';
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="flex items-center justify-center w-full p-[40px] sm:p-[24px] border-t border-grayLight1 dark:border-grayDark2">
       <div className="flex flex-col items-center gap-[16px] sm:gap-[8px] h-fit">
@@ -21,7 +22,7 @@ export const Footer = () => {
           Github: wjknnn 이메일: winrightchoi@gmail.com
         </p>
         <p className="text-center text-body2 text-grayDark1">
-          © 2024 Backup All rights reserved.
+          © {currentYear} Backup All rights reserved.
         </p>
       </div>
     </footer>

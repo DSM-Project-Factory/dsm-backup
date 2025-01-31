@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss'
-import sharedConfig from '@repo/tailwind-config'
+import type { Config } from 'tailwindcss';
+import sharedConfig from '@repo/tailwind-config';
 
 const config: Pick<Config, 'content' | 'presets'> = {
   content: [
@@ -10,6 +10,6 @@ const config: Pick<Config, 'content' | 'presets'> = {
     '!../../packages/ui/node_modules/**/*',
   ],
   presets: [sharedConfig],
-}
+};
 
-export default config
+export default config;

@@ -17,7 +17,7 @@ export class EditorBlockReplacer {
     this.arr.push(
       <MoonerText key={Math.random()} color={color}>
         {target}
-      </MoonerText>
+      </MoonerText>,
     );
     this.str = this.str.substring(index);
     return this;

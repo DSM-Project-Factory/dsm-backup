@@ -4,7 +4,7 @@ import { instance } from '../interceptor';
 export const getFeedbackList = async (
   page?: number,
   order?: FeedbackOrderType,
-  limit?: number
+  limit?: number,
 ) => {
   return await instance<FeedbackListType>({
     method: 'GET',

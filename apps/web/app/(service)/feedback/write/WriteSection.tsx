@@ -67,7 +67,7 @@ export const WriteSection = () => {
         <div className="grid grid-cols-2 gap-2 h-fit sm:grid-cols-1">
           <div className="flex flex-1 h-[640px] sm:h-[320px] overflow-hidden rounded-xl">
             {Editor(
-              '피드백 요청을 받고 싶은 부분, 궁금한 점 등에 대해서 마음껏 작성해 보세요..'
+              '피드백 요청을 받고 싶은 부분, 궁금한 점 등에 대해서 마음껏 작성해 보세요..',
             )}
           </div>
           <div className="border rounded-lg border-grayLight1 dark:border-grayDark2 h-[640px] sm:h-[320px] overflow-hidden sm:-order-1">

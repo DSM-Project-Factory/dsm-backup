@@ -1,5 +1,5 @@
-import { createClient } from '@/utils/supabase/server'
-import { MetadataRoute } from 'next'
+import { createClient } from '@/utils/supabase/server';
+import { MetadataRoute } from 'next';
 
 const sitemapList: MetadataRoute.Sitemap = [
   {
@@ -38,13 +38,13 @@ const sitemapList: MetadataRoute.Sitemap = [
     changeFrequency: 'weekly',
     priority: 0.8,
   },
-]
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const supabase = await createClient()
-  const { data: feedbackId } = await supabase.from('feedback').select('id')
-  const { data: topicId } = await supabase.from('topic').select('id')
-  const { data: tipId } = await supabase.from('tip').select('id')
+  const supabase = await createClient();
+  const { data: feedbackId } = await supabase.from('feedback').select('id');
+  const { data: topicId } = await supabase.from('topic').select('id');
+  const { data: tipId } = await supabase.from('tip').select('id');
 
   const pushSitemap = (category: string, idList: { id: number }[] | null) => {
     idList?.map(({ id }) => {
@@ -53,13 +53,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.7,
-      })
-    })
-  }
+      });
+    });
+  };
 
-  pushSitemap('feedback', feedbackId)
-  pushSitemap('topic', topicId)
-  pushSitemap('tip', tipId)
+  pushSitemap('feedback', feedbackId);
+  pushSitemap('topic', topicId);
+  pushSitemap('tip', tipId);
 
-  return sitemapList
+  return sitemapList;
 }

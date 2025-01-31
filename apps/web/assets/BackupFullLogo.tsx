@@ -1,7 +1,7 @@
 export function BackupFullLogo({
   height = 24,
   width = 66,
-  className = "",
+  className = '',
 }: {
   height?: number;
   width?: number;
