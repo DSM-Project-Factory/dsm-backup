@@ -2,26 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  body {
+    @apply dark:bg-grayDark3 bg-white;
+    @apply dark:text-white text-black;
+  }
+  input:focus,
+  textarea:focus {
+    @apply outline-grayBase;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.animate-in {
+  animation: animateIn 0.3s ease 0.15s both;
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  word-break: keep-all;
+}
+
+svg,
+button,
+a {
+  transition: 0.2s;
+}
+
+#navList::-webkit-scrollbar {
+  height: 0;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background: black;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 8px;
+  padding: 6px 8px;
+  transform: scale(0.8);
+  position: absolute;
+  opacity: 0;
+  z-index: 1000;
+  transition: all 0.1s cubic-bezier(0.5, 0.03, 0.56, 0.89);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.1s cubic-bezier(0.5, 0.03, 0.56, 0.89);
+}
+
+.tooltip .tooltiptext::after {
+  content: ' ';
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.tooltip .tooltip-left {
+  top: auto;
+  right: calc(100% + 12px);
+}
+
+.tooltip .tooltip-left::after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-color: transparent transparent transparent black;
+}
+
+.tooltip .tooltip-right {
+  left: calc(100% + 12px);
+}
+
+.tooltip .tooltip-right::after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-color: transparent black transparent transparent;
+}
+
+.tooltip .tooltip-top {
+  bottom: calc(100% + 12px);
+}
+
+.tooltip .tooltip-top::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip .tooltip-bottom {
+  width: 120px;
+  top: calc(100% + 12px);
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltip-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: transparent transparent black transparent;
 }
